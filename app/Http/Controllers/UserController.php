@@ -9,7 +9,7 @@ use App\Models\User;
 
 
 
-class AdminController extends Controller
+class UserController extends Controller
 {
     //
 
@@ -26,14 +26,14 @@ class AdminController extends Controller
 
     public function Profile() {
         $id = Auth::user()->id;
-        $adminData = User::find($id);
-        return view('admin.admin_profile_view', compact('adminData'));
+        $userData = User::find($id);
+        return view('user.user_profile_view', compact('userData'));
     }//end method
 
     public function EditProfile() {
         $id = Auth::user()->id;
         $editData = User::find($id);
-        return view('admin.admin_profile_edit', compact('editData'));
+        return view('user.user_profile_edit', compact('editData'));
     }//end method
 
     public function StoreProfile(Request $request) {
@@ -47,22 +47,22 @@ class AdminController extends Controller
            $file = $request->file('profile_image');
 
            $filename = date('YmdHi').$file->getClientOriginalName();
-           $file->move(public_path('upload/admin_images'),$filename);
+           $file->move(public_path('upload/user_images'),$filename);
            $data['profile_image'] = $filename;
         }
         $data->save();
 
         $notification = array(
-            'message' => 'Admin Profile Updated Successfully', 
+            'message' => 'Profile Updated Successfully', 
             'alert-type' => 'success'
         );
 
-        return redirect()->route('admin.profile')->with($notification);
+        return redirect()->route('user.profile')->with($notification);
     } //end method
 
     public function ChangePassword() {
 
-        return view('admin.admin_change_password');
+        return view('user.user_change_password');
 
     } //end method
 

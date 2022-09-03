@@ -1,5 +1,5 @@
-@extends('admin.admin_master')
-@section('admin')
+@extends('user.user_master')
+@section('user')
 
 
 <div class="page-content">

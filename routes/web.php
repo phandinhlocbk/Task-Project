@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 //AdminController
-Route::controller(AdminController::class)->group(function() {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'Profile')->name('admin.profile');
+Route::controller(UserController::class)->group(function() {
+    Route::get('/user/logout', 'destroy')->name('user.logout');
+    Route::get('/user/profile', 'Profile')->name('user.profile');
     Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
     Route::post('/store/profile', 'StoreProfile')->name('store.profile');
 //change password
@@ -30,7 +30,7 @@ Route::controller(AdminController::class)->group(function() {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.index');
+    return view('user.index');
 })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

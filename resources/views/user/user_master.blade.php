@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-    {{asset('backend/')}}
+ 
         <meta charset="utf-8" />
         <title>Dashboard | Upcube - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +37,10 @@
         <div id="layout-wrapper">
 
             <!-- page top bar -->
-           @include('admin.body.header')
+           @include('user.body.header')
 
             <!-- ========== Left Sidebar Start ========== -->
-            @include('admin.body.sidebar')
+            @include('user.body.sidebar')
             <!-- Left Sidebar End -->
 
             
@@ -50,10 +50,10 @@
             <!-- ============================================================== -->
             <div class="main-content">
                 <!-- page content -->
-                @yield('admin')
+                @yield('user')
                 <!-- End Page-content -->
                
-            @include('admin.body.footer')
+            @include('user.body.footer')
                 
             </div>
             <!-- end main content-->

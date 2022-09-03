@@ -1,6 +1,6 @@
 @php
 $id = Auth::user()->id;
-$adminData = App\Models\User::find($id);
+$userData = App\Models\User::find($id);
 @endphp
 
 <div class="vertical-menu">
@@ -10,10 +10,10 @@ $adminData = App\Models\User::find($id);
                     <!-- User details -->
                     <div class="user-profile text-center mt-3">
                         <div class="">
-                            <img src="{{ (!empty($adminData->profile_image)?url('upload/admin_images/'.$adminData->profile_image):url('upload/no_image.jpg')) }}" alt="" class="avatar-md rounded-circle">
+                            <img src="{{ (!empty($userData->profile_image)?url('upload/user_images/'.$userData->profile_image):url('upload/no_image.jpg')) }}" alt="" class="avatar-md rounded-circle">
                         </div>
                         <div class="mt-3">
-                            <h4 class="font-size-16 mb-1">{{$adminData->name}}</h4>
+                            <h4 class="font-size-16 mb-1">{{$userData->name}}</h4>
                         </div>
                     </div>
 
