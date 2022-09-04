@@ -43,4 +43,16 @@ class TaskController extends Controller
 
 
     }//endd method
+
+    public function DeleteTask($id) {
+
+        Task::findOrFail($id)->delete();
+        $notification = array(
+            'message'=>'Task has been deleted successfully',
+            'aler-type' => 'success'
+        );
+
+         return redirect()->route('alltask.page')->with($notification);
+
+    }
 }

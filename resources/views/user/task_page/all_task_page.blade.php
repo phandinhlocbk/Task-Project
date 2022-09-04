@@ -55,7 +55,7 @@
                             <td>
                                 <a href="" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
 
-                              <a href="" class="btn btn-danger sm" title="Delete Data">  <i class="fas fa-trash-alt" id="delete"></i> </a>
+                                <a href="{{route('delete.task', $task->id)}}" class="btn btn-danger sm" title="Delete Data">  <i class="fas fa-trash-alt" id="delete"></i> </a>
                             </td>
                         </tr>
                         @endforeach
