@@ -39,7 +39,7 @@ $userData = App\Models\User::find($id);
                                     <li>
                                         <ul class="sub-menu" aria-expanded="true">
                                             <li><a href="{{route('task.page')}}">Create Task</a></li>
-                                            <li><a href="">All Task</a></li>
+                                            <li><a href="{{route('alltask.page')}}">All Task</a></li>
                                         </ul>
                                     </li>
                                   

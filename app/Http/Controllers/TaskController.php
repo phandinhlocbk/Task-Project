@@ -22,7 +22,7 @@ class TaskController extends Controller
             'end_date' => $request->end_date,
             'status' => $request->status,
             'priority' => $request->priority,
-            'task_description' => $request->task_desription,
+            'task_description' => $request->task_description,
 
         ]);
 
@@ -35,4 +35,12 @@ class TaskController extends Controller
         
 
     }//end method
+
+    public function AllTaskPage() {
+        $taskdata = Task::latest()->get();
+
+        return view('user.task_page.all_task_page', compact('taskdata'));
+
+
+    }//endd method
 }
