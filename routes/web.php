@@ -37,6 +37,9 @@ Route::controller(TaskController::class)->group(function() {
     Route::post('/store/task', 'StoreTask')->name('store.task');
     Route::get('/alltask/page', 'AllTaskPage')->name('alltask.page');
     Route::get('/delete/task/{id}', 'DeleteTask')->name('delete.task');
+    Route::get('/edit/task/{id}', 'EditTask')->name('edit.task');
+    Route::post('/update/task', 'UpdateTask')->name('update.task');
+
 });
 
 Route::get('/dashboard', function () {

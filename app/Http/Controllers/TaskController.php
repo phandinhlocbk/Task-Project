@@ -31,7 +31,7 @@ class TaskController extends Controller
             'alert-type' => 'success',
          );
 
-         return back();
+         return redirect()->route('alltask.page');
         
 
     }//end method
@@ -55,4 +55,31 @@ class TaskController extends Controller
          return redirect()->route('alltask.page')->with($notification);
 
     }
+
+    public function EditTask($id) {
+        $taskdata = Task::findOrFail($id);
+
+        return view('user.task_page.edit_task', compact('taskdata'));
+    }//end method
+
+    public function UpdateTask(Request $request) {
+
+        $task_id = $request->id;        
+        Task::findOrFail($task_id)->update([
+            'project_name' => $request->project_name,
+            'task_name' => $request->task_name,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'status' => $request->status,
+            'priority' => $request->priority,
+            'task_description' => $request->task_description,
+        ]);
+
+        $notification = array (
+            'message' => 'Task Updated Successfully',
+            'alert-type' => 'success',
+         );
+
+         return redirect()->route('alltask.page')->with($notification);
+    }//end method
 }
