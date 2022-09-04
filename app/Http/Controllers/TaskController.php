@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\User;
 
 class TaskController extends Controller
 {
@@ -15,7 +16,18 @@ class TaskController extends Controller
 
     public function StoreTask(Request $request) {
 
-        Task::insert([
+        // Task::insert([
+        //     'project_name' => $request->project_name,
+        //     'task_name' => $request->task_name,
+        //     'start_date' => $request->start_date,
+        //     'end_date' => $request->end_date,
+        //     'status' => $request->status,
+        //     'priority' => $request->priority,
+        //     'task_description' => $request->task_description,
+
+        // ]);
+
+        $inputs = ([
             'project_name' => $request->project_name,
             'task_name' => $request->task_name,
             'start_date' => $request->start_date,
@@ -25,6 +37,7 @@ class TaskController extends Controller
             'task_description' => $request->task_description,
 
         ]);
+        auth()->user()->tasks()->create($inputs);
 
         $notification = array (
             'message' => 'Task Inserted Successfully',
@@ -37,8 +50,7 @@ class TaskController extends Controller
     }//end method
 
     public function AllTaskPage() {
-        $taskdata = Task::latest()->get();
-
+        $taskdata = auth()->user()->tasks;
         return view('user.task_page.all_task_page', compact('taskdata'));
 
 
@@ -82,4 +94,8 @@ class TaskController extends Controller
 
          return redirect()->route('alltask.page')->with($notification);
     }//end method
+
+    public function AllTaskDashboard() {
+        return view('user.task_page.alltask_dashboard');
+    }
 }

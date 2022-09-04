@@ -93,7 +93,7 @@
             <!-- end row -->
 
             <!-- end row -->
-            <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert New Tag">
+            <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert New Task">
             </form>
 
 

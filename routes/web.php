@@ -16,7 +16,7 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 //UserController
@@ -39,11 +39,12 @@ Route::controller(TaskController::class)->group(function() {
     Route::get('/delete/task/{id}', 'DeleteTask')->name('delete.task');
     Route::get('/edit/task/{id}', 'EditTask')->name('edit.task');
     Route::post('/update/task', 'UpdateTask')->name('update.task');
+    Route::get('/alltask/dashboard', 'AllTaskDashboard')->name('alltask.dashboard');
 
 });
 
-Route::get('/dashboard', function () {
-    return view('user.index');
-})->middleware(['auth','verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('user.index');
+// })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
