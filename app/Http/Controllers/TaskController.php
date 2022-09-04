@@ -96,6 +96,15 @@ class TaskController extends Controller
     }//end method
 
     public function AllTaskDashboard() {
-        return view('user.task_page.alltask_dashboard');
+        $taskdata = auth()->user()->tasks;
+        // $tasktotal = $taskdata ->count();
+        // $pendingcount = $taskdata -> where('status','Pending')->count();
+        // $processingcount = $taskdata -> where('status','On Process')->count();
+        // $donecount = $taskdata -> where('status','done')->count();
+        
+
+        // dd($task);
+
+        return view('user.task_page.alltask_dashboard',compact('taskdata'));
     }
 }

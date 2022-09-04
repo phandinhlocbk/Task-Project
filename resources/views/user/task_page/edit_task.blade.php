@@ -42,7 +42,7 @@
             <div class="row mb-3">
                 <label for="example-date-input" class="col-sm-2 col-form-label">Start Date</label>
                 <div class="col-sm-10">
-                    <input name="start_date" class="form-control" type="date" value="{{$taskdata->staart_date}}" id="example-date-input">
+                    <input name="start_date" class="form-control" type="date" value="{{$taskdata->start_date}}" id="example-date-input">
                 </div>
             </div>
 
@@ -61,7 +61,7 @@
                 <div class="col-sm-10">
             <select name="status" class="form-select" aria-label="Default select example" value="{{$taskdata->status}}">
             <option selected="">Open this select menu</option>
-            <option value="Peding">Pending</option>
+            <option value="Pending">Pending</option>
             <option value="On Process">On Process</option>
             <option value="Done">Done</option>
             </select>

@@ -59,7 +59,7 @@
                 <div class="col-sm-10">
             <select name="status" class="form-select" aria-label="Default select example">
             <option selected="">Open this select menu</option>
-            <option value="Peding">Pending</option>
+            <option value="Pending">Pending</option>
             <option value="On Process">On Process</option>
             <option value="Done">Done</option>
             </select>
