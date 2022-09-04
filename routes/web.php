@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//AdminController
+//UserController
 Route::controller(UserController::class)->group(function() {
     Route::get('/user/logout', 'destroy')->name('user.logout');
     Route::get('/user/profile', 'Profile')->name('user.profile');
@@ -27,6 +28,13 @@ Route::controller(UserController::class)->group(function() {
 //change password
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
+});
+
+
+//TaskController
+Route::controller(TaskController::class)->group(function() {
+    Route::get('/task/page', 'TaskPage')->name('task.page');
+    Route::post('/store/task', 'StoreTask')->name('store.task');
 });
 
 Route::get('/dashboard', function () {
