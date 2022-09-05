@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TaskController;
 
 /*
@@ -17,6 +18,11 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return redirect('/login');
+});
+//AdminController
+Route::controller(AdminController::class)->group(function() {
+    Route::get('/admin/login', 'Index')->name('admin.login');
+ 
 });
 
 //UserController
