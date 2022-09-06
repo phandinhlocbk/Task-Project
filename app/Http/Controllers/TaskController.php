@@ -50,7 +50,8 @@ class TaskController extends Controller
     }//end method
 
     public function AllTaskPage() {
-        $taskdata = auth()->user()->tasks;
+        //$taskdata = auth()->user()->tasks;
+        $taskdata = Task::all();
         return view('user.task_page.all_task_page', compact('taskdata'));
 
 

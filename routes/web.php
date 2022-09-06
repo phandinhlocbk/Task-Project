@@ -22,6 +22,7 @@ Route::get('/', function () {
 //AdminController
 Route::controller(AdminController::class)->group(function() {
     Route::get('/admin/login', 'Index')->name('admin.login');
+    Route::post('/admin/login/owner', 'Login')->name('admin.login.owner');
  
 });
 

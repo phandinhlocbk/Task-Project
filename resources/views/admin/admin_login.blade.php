@@ -41,7 +41,7 @@
                         <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
     
                         <div class="p-3">
-                            <form class="form-horizontal mt-3" method="POST" action="">
+                            <form class="form-horizontal mt-3" method="POST" action="{{route('admin.login.owner')}}">
                               @csrf
 
                                 <div class="form-group mb-3 row">
